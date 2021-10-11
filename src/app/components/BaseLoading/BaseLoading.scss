@@ -1,0 +1,17 @@
+.base-loading {
+    &.load-more {
+       text-align: center;
+       img {
+           position: static;
+           width: 30px;
+       } 
+    }
+
+    img {
+        width: 250px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
