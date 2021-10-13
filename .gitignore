@@ -1,10 +1,11 @@
 # Don't check auto-generated stuff into git
 coverage
-build
 node_modules
 stats.json
 .pnp
 .pnp.js
+gh-pages
+gh-pages.pub
 
 # misc
 .DS_Store
