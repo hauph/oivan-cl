@@ -1,0 +1,32 @@
+@mixin position-absolute($t, $r, $b, $l) {
+    position: absolute;
+    @if $t != n {top: $t;}
+    @if $r != n {right: $r};
+    @if $b != n {bottom: $b};
+    @if $l != n {left: $l};
+}
+
+@mixin position-fixed($t, $r, $b, $l) {
+    position: fixed;
+    @if $t != n {top: $t;}
+    @if $r != n {right: $r};
+    @if $b != n {bottom: $b};
+    @if $l != n {left: $l};
+}
+
+@mixin single-prefix($property, $val){
+    -webkit-#{$property}: $val;
+    -moz-#{$property}: $val;
+    -ms-#{$property}: $val;
+    #{$property}: $val;
+}
+
+
+@mixin multi-prefix($declarations) {
+    @each $property, $value in $declarations {
+        -webkit-#{$property}: $value;
+        -moz-#{$property}: $value;
+        -ms-#{$property}: $value;
+        #{$property}: $value;
+    }
+}

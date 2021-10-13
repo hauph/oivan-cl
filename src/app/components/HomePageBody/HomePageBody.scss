@@ -1,41 +1,71 @@
+@import '../../../styles/scss/mixin.scss';
+
 .articles {
     margin: 50px;
+
+    h1 {
+        text-align: center;
+        margin-bottom: 50px;
+    }
     
     .article {
-        background: #000;
+        background: var(--black);
         border-radius: 20px;
-        border: 1px solid rgb(222, 222, 222);
-        transition: transform 100ms ease-in-out;
+        border: 1px solid var(--border);
+        @include single-prefix(transition, transform 100ms ease-in-out);
     
         &:hover {
-            transform: scale(1.125);
+            @include single-prefix(transform, scale(1.125));
+            box-shadow: 0 0 10px var(--black);
             z-index: 9000;
             position: relative;
             cursor: pointer;
         }
     
-        &__image {
-            &.no-content {
-                overflow: hidden;
-                border-bottom-left-radius: 18px;
-                border-bottom-right-radius: 18px;
-            }
-        }
-
         img {
             width: 100%;
+            &.default-height {
+                height: 195px;
+            }
         }
     
-        &__title, &__description {
-            color: #fff;
+        &__description {
+            color: var(--white);
             padding: 10px;
+            text-align: center;
         }
-    
+
         &__title {
+            padding: 10px;
             border-top-left-radius: 18px;
             border-top-right-radius: 18px;
-            background: #fff;
-            color: #2e89ff;
+            background: var(--white);
+            h3 {
+                margin-bottom: 0;
+                a {
+                    text-decoration: none;
+                    color: var(--primary);
+                    position: relative;
+                    display: inline-block;
+                    overflow: hidden;
+                    background: linear-gradient(to right, var(--secondary), var(--secondary) 50%, var(--primary) 50%);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-size: 200% 100%;
+                    background-position: 100%;
+                    transition: background-position 275ms ease;
+    
+                    &:hover {
+                        background-position: 0 100%;
+                    }
+                }
+            }
+
+            i {
+                margin-top: 0;
+                font-size: 12px;
+            }
         }
     
         &.hide-img {
@@ -47,6 +77,10 @@
                     display: none;
                 }
             }
+        }
+
+        &.highlight {
+            box-shadow: 0 0 10px red;
         }
     }
 }

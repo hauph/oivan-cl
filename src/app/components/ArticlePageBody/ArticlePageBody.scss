@@ -1,0 +1,115 @@
+@import '../../../styles/scss/mixin.scss';
+
+.art {
+    button {
+        border: 1px solid var(--border);
+        background-color: unset;
+        width: 50px;
+        height: 50px;
+        margin: 0;
+        cursor: pointer;
+
+        path {
+            fill: var(--border);
+        }
+    }
+
+    &__content {
+        padding: 0 50px;
+        text-align: center;
+
+        .item__btn-groups {
+            button {
+                @include position-absolute(45%,n,n,n);
+                @include single-prefix(transform, translateY(-45%));
+                border: none;
+                cursor: pointer;
+
+                svg {
+                    height: 25px;
+                    width: 25px;
+                }
+
+                &.btn--previous{
+                    left: 0;
+                }
+            
+                &.btn--next {
+                    right: 0;
+                }
+
+                &:hover {
+                    path {
+                        fill: var(--primary);
+                    }
+                }
+
+                &[disabled] {
+                    cursor: not-allowed;
+                    &:hover {
+                        path {
+                            fill: var(--border);
+                        }
+                    }
+                }
+            }
+        }
+
+        h1 {
+            position: relative;
+            margin-bottom: 0;
+
+            a {
+                color: var(--primary);
+                text-decoration: none;
+                position: relative;
+                &:before {
+                    content: '';
+                    @include multi-prefix((
+                        transition: transform 0.3s,
+                        transform-origin: 100% 50%,
+                        transform: scale3d(0, 1, 1)
+                    ));
+                    @include position-absolute(100%, n, n, 0);
+                    width: 100%;
+                    height: 3px;
+                    background: var(--primary);
+                    pointer-events: none;
+                }
+    
+                &:hover {
+                    &:before  {
+                        @include multi-prefix((
+                            transform-origin: 0% 50%,
+                            transform: scale3d(1, 1, 1)
+                        ));
+                    }    
+                }
+            }
+        }
+
+        &.item {
+            .item__info {
+                font-size: 12px;
+                margin-bottom: 25px;
+
+                p {
+                    color: var(--secondary);
+                }
+            }
+    
+            .item__image {
+                margin-bottom: 25px;
+    
+                img {
+                    width: 50%;
+                    
+                    @media screen and (max-width: 768px) {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+    }
+}

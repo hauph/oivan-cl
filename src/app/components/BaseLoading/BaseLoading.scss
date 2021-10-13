@@ -1,6 +1,10 @@
+@import '../../../styles/scss/mixin.scss';
+
 .base-loading {
     &.load-more {
        text-align: center;
+       margin-top: 25px;
+
        img {
            position: static;
            width: 30px;
@@ -9,9 +13,7 @@
 
     img {
         width: 250px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        @include position-absolute(50%, n, n, 50%);
+        @include single-prefix(transform, translate(-50%, -50%));
     }
 }
