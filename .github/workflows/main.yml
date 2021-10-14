@@ -3,8 +3,6 @@ name: GH Pages Deploy
 on:
   push:
     branches: [release]
-  pull_request:
-    branches: [master]
 
 jobs:
   build-deploy:
@@ -14,9 +12,11 @@ jobs:
 
     steps:
       - name: Install dependencies 🔧
+        working-directory: ./
         run: npm install
 
       - name: Build 🏗️
+        working-directory: ./
         run: npm run build
 
       - name: Deploy to GH Pages 🚀
@@ -24,4 +24,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          publish_dir: build
+          publish_dir: ./build
