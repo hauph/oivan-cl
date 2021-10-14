@@ -6,6 +6,7 @@ stats.json
 .pnp.js
 gh-pages
 gh-pages.pub
+build
 
 # misc
 .DS_Store
